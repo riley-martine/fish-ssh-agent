@@ -1,8 +1,12 @@
 # fish-ssh-agent
 
-Utility functions to start your ssh agent when using fish shell.
-You will only need to run `ssh-add` and type your password once,
-after the running ssh_agent should do the work for you.
+Utility functions to start your ssh agent when using fish shell. Rewritten for
+compatibility with macOS `/usr/bin/ssh-agent` and its Keychain integration.
+
+You do not need to manually run `ssh-add` or type in your password, after the
+first time loading them with `ssh-add --apple-use-keychain`. Also fixes some
+bugs I was encountering where the `ssh-agent` got unloaded or was unnecessarily
+spawned anew.
 
 ## Installation
 
@@ -10,16 +14,16 @@ after the running ssh_agent should do the work for you.
 
 Add
 
-```
-fundle plugin 'danhper/fish-ssh-agent'
+```fish
+fundle plugin 'riley-martine/fish-ssh-agent'
 ```
 
 to your `config.fish`, reload your shell and run `fundle install`.
 
 ### Using [Fisher](https://github.com/jorgebucaran/fisher)
 
-```
-fisher install danhper/fish-ssh-agent
+```shell
+fisher install riley-martine/fish-ssh-agent
 ```
 
 ### Manually
